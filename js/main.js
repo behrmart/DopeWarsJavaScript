@@ -14,3 +14,11 @@ var debt = 0;
 var bank = 0;
 
 
+// Echar los Perros en JavaScript
+const noviaName = "Novia Potencial";
+
+// Declara tu amor
+const mensajeAmor = `Te amo , ${noviaName}! Eres la mejor Dev en GitHub adoro tus cuadritos verdes `;
+
+// Hazlo oficial
+console.log(mensajeAmor);
