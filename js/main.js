@@ -12,6 +12,15 @@ var trenchcoat = 100;
 var gun = false;
 var debt = 0;
 var bank = 0;
+var totalDays = 30;
+
+
+function today() {
+    document.getElementById("Location").innerHTML = locations[2];
+    };
+
+today();
+
 
 
 // Echar los Perros en JavaScript
