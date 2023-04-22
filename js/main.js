@@ -13,15 +13,31 @@ var gun = false;
 var debt = 0;
 var bank = 0;
 var totalDays = 30;
+var dayNumber = 1;
 
 
-function today() {
-    document.getElementById("Location").innerHTML = locations[2];
+function todayStatus(a) {
+    
+    document.getElementById("dayid").innerHTML = "Day " + a + "/30";
+    document.getElementById("locationid").innerHTML = locations[a];
+    document.getElementById("cashid").innerHTML = cash;
+    document.getElementById("trenchcoatid").innerHTML = trenchcoat;
     };
 
-today();
+function nextDay(){
+    dayNumber ++;
+}
 
 
+function main() {
+    
+    while (dayNumber < totalDays) {
+    todayStatus(dayNumber);
+    nextDay();
+    };
+}
+
+main();
 
 // Echar los Perros en JavaScript
 const noviaName = "Novia Potencial";
