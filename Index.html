@@ -31,6 +31,13 @@
                 <h3>Cash: <span id="cashid"></span></h3>
                 <h3>Trenchcoat pockets: <span id="trenchcoatid"></span></h3>
 
+                <div class="container-fluid p-5">
+                    <form name="nextdayform" onsubmit="return validateForm()" method="post">
+                        Continue: <input type="text" name="fname">
+                        <button id="nexdaybutton" type="button" class="btn btn-success btn-lg" type="submit" value="Submit">Next Day</button>
+                    </form> 
+                </div>
+
             </div>
             <div class="col-md-6 status border">
                 <h2>Status</h2>
