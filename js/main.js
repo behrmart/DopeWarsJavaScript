@@ -25,6 +25,18 @@ function todayStatus(a){
     document.getElementById("trenchcoatid").innerHTML = trenchcoat;
     };
 
+
+function travelTo (b) {
+    console.log("b: " + b);
+    if (b==true){
+        console.log("Travel Button pressed");
+        document.getElementById("dayid").innerHTML = "ButtonPressed";
+    } else {
+        console.log("Travel Button NOT pressed");
+        document.getElementById("dayid").innerHTML = "Button NOT Pressed";
+    }
+}
+
 function drugCard(a){
     document.getElementById("drugHeaderCard").innerHTML = a;
     document.getElementById("drugTitleCard").innerHTML = a;
@@ -42,17 +54,24 @@ function nextDay(){
 function main() {
     
     todayStatus(dayNumber);
-    drugCard("Coke");
-}
+    drugCard("Weed");
 
+    
+}
 
 main();
 
+function change() {
+    var buttonTravel = document.getElementById('travelButton');
+    console.log("buttonTravel value:" + buttonTravel.value);
+}
+
+
 // Echar los Perros en JavaScript
-const noviaName = "Novia Potencial";
+//const noviaName = "Novia Potencial";
 
 // Declara tu amor
-const mensajeAmor = `Te amo , ${noviaName}! Eres la mejor Dev en GitHub adoro tus cuadritos verdes `;
+//const mensajeAmor = `Te amo , ${noviaName}! Eres la mejor Dev en GitHub adoro tus cuadritos verdes `;
 
 // Hazlo oficial
-console.log(mensajeAmor);
+//console.log(mensajeAmor);
