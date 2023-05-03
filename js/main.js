@@ -25,6 +25,13 @@ function todayStatus(a){
     document.getElementById("trenchcoatid").innerHTML = trenchcoat;
     };
 
+function drugCard(a){
+    document.getElementById("drugHeaderCard").innerHTML = a;
+    document.getElementById("drugTitleCard").innerHTML = a;
+    document.getElementById("drugPriceCard").innerHTML = a;
+    document.getElementById("drugFooterCard").innerHTML = a;
+}
+
 function nextDay(){
     
     dayNumber ++;
@@ -35,6 +42,7 @@ function nextDay(){
 function main() {
     
     todayStatus(dayNumber);
+    drugCard("Coke");
 }
 
 
