@@ -16,41 +16,16 @@ var totalDays = 30;
 var dayNumber = 1;
 
 
-function todayStatus(a) {
+function todayStatus(a){
     
     document.getElementById("dayid").innerHTML = "Day " + a + "/30";
     document.getElementById("locationid").innerHTML = locations[a];
     document.getElementById("cashid").innerHTML = cash;
+    document.getElementById("debtid").innerHTML = debt;
     document.getElementById("trenchcoatid").innerHTML = trenchcoat;
     };
 
 function nextDay(){
-    
-    function validateForm() {
-        let x = document.forms["nextdayform"]["fname"].value;
-        if (x == "") {
-          alert("Must answer yes");
-          return false;
-        }
-      } 
-
-
-
-    var x = document.getElementById("nexdaybutton").value; // get input value
-    try { 
-        if(x == "")  throw "empty";                 // error cases
-        if(isNaN(x)) throw "not a number";
-        x = Number(x);
-        if(x > 10)   throw "too high";
-        }
-    catch(err) {                                    // if there's an error
-        document.write("Input is " + err);          // output error
-        console.error(err);                         // write the error in console
-    }
-
-    finally {
-        document.write("</br />Done");              // executed regardless of the try / catch result
-    }
     
     dayNumber ++;
 
@@ -59,13 +34,8 @@ function nextDay(){
 
 function main() {
     
-    while (dayNumber < totalDays) {
     todayStatus(dayNumber);
-    nextDay();
-    };
 }
-
-
 
 
 main();

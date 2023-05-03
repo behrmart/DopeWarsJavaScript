@@ -15,7 +15,7 @@
 </head>
 <body>
     <!-- Navbar a heading -->
-    <nav class="navbar bg-body-tertiary">
+    <nav class="navbar bg-success">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">DopeWars Clone usando JavaScript/Bootstrap 5.3</span>
             <span class="navbar-text">Por Bernardo F. Martínez Meave</span>
@@ -23,24 +23,36 @@
     </nav>
 
 
-    <div class="container-fluid mainwindow border">
-        <div class="row">
-            <div class="col-md-6 today border">
-                <h2 id ="dayid"></h2>
-                <h2 id="locationid"></h2>
-                <h3>Cash: <span id="cashid"></span></h3>
-                <h3>Trenchcoat pockets: <span id="trenchcoatid"></span></h3>
-
-                <div class="container-fluid p-5">
-                    <form name="nextdayform" onsubmit="return validateForm()" method="post">
-                        Continue: <input type="text" name="fname">
-                        <button id="nexdaybutton" type="button" class="btn btn-success btn-lg" type="submit" value="Submit">Next Day</button>
-                    </form> 
+    <div class="container-fluid mainwindow text-center">
+        <div class="row p-md-4">
+            <div class="col-md-12 today border border-success rounded-4">
+                <div class="row p-md-2">
+                    <div class="col-md-6 locationcont border border-success rounded-4"><h1 id="locationid"></h1></div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-5 daycont border border-warning rounded-4"><h2 id ="dayid"></h2></div>
                 </div>
-
+                <div class="row p-md-2">
+                    <div class="col-md-4"><h3>Cash: <span id="cashid"></span></h3></div>
+                    <div class="col-md-4"><h3>Debt: <span id="debtid"></span></h3></div>
+                    <div class="col-md-4"><h3>Trenchcoat: <span id="trenchcoatid"></span></h3></div>
+                </div>
             </div>
-            <div class="col-md-6 status border">
-                <h2>Status</h2>
+        </div>
+    </div>
+
+    <div class="container-fluid controlwindow text-center">
+        <div class="row p-md-4">
+            <div class="col-md-12 border border-danger rounded-4">
+                <div class="row p-md-2">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                            <button type="button" class="btn btn-danger">Bank</button>
+                            <button type="button" class="btn btn-warning">Next Day</button>
+                            <button type="button" class="btn btn-success">Pay Debt</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
