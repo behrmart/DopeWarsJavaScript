@@ -47,18 +47,18 @@
                     <div class="col-md-4"></div>
                     <div class="col-md-4">
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <button type="button" class="btn btn-danger" id="travelButton" value="Manhattan" onclick="change()">Bank</button>
+                            <button type="button" class="btn btn-danger" id="bankButton" value="bank">Bank</button>
                             <!-- Example single danger button -->
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button type="button" class="btn btn-warning dropdown-toggle" id="travelButton"  data-bs-toggle="dropdown" aria-expanded="false">
                                     Travel To
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Manhattan</a></li>
-                                        <li><a class="dropdown-item" href="#">The Bronx</a></li>
-                                        <li><a class="dropdown-item" href="#">Queens</a></li>
-                                        <li><a class="dropdown-item" href="#">Brooklyn</a></li>
-                                        <li><a class="dropdown-item" href="#">Conney Island</a></li>
+                                        <li><a class="dropdown-item" onclick="travelTo('Manhattan')">Manhattan</a></li>
+                                        <li><a class="dropdown-item" onclick="travelTo('The Bronx')">The Bronx</a></li>
+                                        <li><a class="dropdown-item" onclick="travelTo('Queens')">Queens</a></li>
+                                        <li><a class="dropdown-item" onclick="travelTo('Brooklyn')">Brooklyn</a></li>
+                                        <li><a class="dropdown-item" onclick="travelTo('Conney Island')">Conney Island</a></li>
                                     </ul>
                                 </div>
                             <button type="button" class="btn btn-success">Pay Debt</button>

@@ -27,14 +27,8 @@ function todayStatus(a){
 
 
 function travelTo (b) {
-    console.log("b: " + b);
-    if (b==true){
-        console.log("Travel Button pressed");
-        document.getElementById("dayid").innerHTML = "ButtonPressed";
-    } else {
-        console.log("Travel Button NOT pressed");
-        document.getElementById("dayid").innerHTML = "Button NOT Pressed";
-    }
+
+    document.getElementById("locationid").innerHTML = b;
 }
 
 function drugCard(a){
