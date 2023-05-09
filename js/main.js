@@ -13,7 +13,7 @@ var gun = false;
 var debt = 0;
 var bank = 0;
 var totalDays = 30;
-var dayNumber = 1;
+var dayNumber = 0;
 
 
 function todayStatus(a){
@@ -26,17 +26,13 @@ function todayStatus(a){
     };
 
 
-function travelTo (b) {
+function travelTo (b) {  //travelTo location function invoqued in HTML 
 
     let locationcont = document.getElementById('locationcont'); //locationid container
-    let locationClassList = locationcont.classList;
-    console.log(b)
-    console.log(locationClassList);
-    let classAttrib = locationcont.getAttribute('class');
-    console.log(classAttrib)
+    
     locationcont.setAttribute('class', 'col-md-6 border rounded-4'); // Reset locationcont class when the travelTo is called. 
     
-    if (b==='Manhattan'){       
+    if (b==='Manhattan'){       // Sets location display to different bootstrap colors
         locationcont.classList.add('text-primary-emphasis','bg-primary-subtle','border-primary-subtle'); 
     } else if (b==='The Bronx'){
         locationcont.classList.add('text-danger-emphasis','bg-danger-subtle','border-danger-subtle');
@@ -68,7 +64,7 @@ function nextDay(){
 }
 
 
-/* function main() {
+function main() {
     
     todayStatus(dayNumber);
     travelTo("Manhattan");
@@ -76,7 +72,7 @@ function nextDay(){
     
 }
 
-main(); */
+main(); 
 
 
 
