@@ -5,7 +5,11 @@
 // Stardate: 20230418
 
 const locations = ["Manhattan", "The Bronx", "Brooklyn", "Conney Island", "Queens"];
-const drugs = ["Cocaine", "Heroin", "Acid", "Weed", "Speed", "Ludes"];
+const drugs = ["Cocaine", "Heroin", "Acid", 
+                "Weed", "Speed", "Ludes", 
+                "Hash", "Meth", "Ecstasy", 
+                "PCP", "Opium", "Peyote"];
+
 
 var cash = 2000;
 var trenchcoat = 100;
@@ -44,14 +48,82 @@ function travelTo (b) {  //travelTo location function invoqued in HTML
         locationcont.classList.add('text-info-emphasis','bg-info-subtle','border-info-subtle');
     }
 
+ 
+    todaysNews = drugNews();
+    console.log ("todaysNews: " + todaysNews[0]);
+    
+    if (todaysNews[0] === 0){
+            const borraAlertPlaceHolder = document.getElementById('liveAlertPlaceholder');
+            if (borraAlertPlaceHolder != null ){ 
+            console.log(borraAlertPlaceHolder);
+            borraAlertPlaceHolder.remove();
+            }
+            
+        } else {
+            appendAlert(todaysNews[1], 'success');
+        }
+    
 
     dayNumber ++;
     document.getElementById("locationid").innerHTML = b;
     document.getElementById("dayid").innerHTML = "Day " + dayNumber + "/30";
+    
+
+    
 }
 
+
+function drugNews(){
+    const newsReel = ["Speed Prices are up!",
+                        "Cocaine Prices are up! ", 
+                        "Cactus Jake is in Town Peyote prices are down!", 
+                        "Hash prices are up!",
+                        "Weed prices are up!",
+                        "Opium prices are up!",
+                        "PCP prices are up!",
+                        "Heroine prices are up!",
+                        "Meth prices are up!",
+                        "Ludes prices are up!",
+                        "Ecstasy prices are up!",
+                        "Acid prices are up!"
+                    ]
+    let randomNumber = Math.floor(Math.random() * 12); // Select a drug's news
+    let newsProbability = Math.floor(Math.random() * 3); // 40% chance neews ocurring
+
+    console.log("news prob: " + newsProbability)
+    if (newsProbability === 1) {
+        return [ randomNumber + 1 ,newsReel[randomNumber]]; //Return drug number and news
+    } else {
+        console.log("No news");
+        return [0,0];  // Return 0,0 No news
+    }
+    
+}
+
+// Drug News Alert window
+const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+const appendAlert = (message, type) => {
+  const wrapper = document.createElement('div')
+  wrapper.innerHTML = [
+    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+    `   <div>${message}</div>`,
+    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+    '</div>'
+  ].join('')
+
+  alertPlaceholder.append(wrapper)
+}
+
+const alertTrigger = document.getElementById('liveAlertBtn')
+if (alertTrigger) {
+  alertTrigger.addEventListener('click', () => {
+    appendAlert('Nice, you triggered this alert message!', 'success')
+  })
+}
+
+
 function drugCard(a){
-    document.getElementById("drugHeaderCard").innerHTML = a;
+    document.getElementById("drugNewsCard").innerHTML = a;
     document.getElementById("drugTitleCard").innerHTML = a;
     document.getElementById("drugPriceCard").innerHTML = a;
     document.getElementById("drugFooterCard").innerHTML = a;
