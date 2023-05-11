@@ -71,7 +71,6 @@
 
     <div class="container-fluid newscont p-md-4">
         <div id="liveAlertPlaceholder"></div>
-        <!-- <button type="button" class="btn btn-primary" id="liveAlertBtn">Show live alert</button> -->
     </div>
 <!-- DRUG CARD CONTAINER -->
 
@@ -83,17 +82,21 @@
                 </div>
             </div>
             <div class="row p-md-2">
+                <!-- WEED Card -->
                 <div class="col-md-4">
-                    <div class="card text-center">
-                        <div class="card-header" id="drugNewsCard">
-                        Drug
+                    <div class="card text-center border-success-subtle">
+                        <div class="card-header text-success-emphasis bg-success-subtle border-success-subtle" id="drugTitleCard">
+                        Weed
                         </div>
                         <div class="card-body">
-                        <h5 class="card-title" id="drugTitleCard">Drug Title</h5>
-                        <p class="card-text" id="drugPriceCard">Drug Price today</p>
-                        <a href="#" class="btn btn-primary">Buy</a>
+                        <h5 class="card-title" id="drugPriceCard">Weed</h5>
+                        <p class="card-text" id="drugToBuyCard"></p>
+                        <label for="drugRange1" class="form-label">Select Quantity</label>
+                        <input type="range" class="form-range" min="0" max="10" id="drugRange1">
+                        <a href="#" class="btn btn-outline-success" id="buttonBuy">Buy</a>
+                        <a href="#" class="btn btn-outline-danger" id="buttonSell">Sell</a>
                         </div>
-                        <div class="card-footer text-body-secondary" id="drugFooterCard">
+                        <div class="card-footer text-info-emphasis bg-info-subtle border-info-subtle" id="drugInventoryCard">
                         Drug inventory
                         </div>
                     </div>

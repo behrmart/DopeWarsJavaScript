@@ -10,6 +10,8 @@ const drugs = ["Cocaine", "Heroin", "Acid",
                 "Hash", "Meth", "Ecstasy", 
                 "PCP", "Opium", "Peyote"];
 
+const weed = ["Weed",100,0,] //Drug name, Price, Quantity in Inventory
+
 
 var cash = 2000;
 var trenchcoat = 100;
@@ -25,21 +27,13 @@ const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
 const appendAlert = (message, type) => {
   const wrapper = document.createElement('div')
   wrapper.innerHTML = [
-    `<div class="alert alert-${type} alert-dismissible" role="alert" id="alertMessage">`,
+    `<div class="alert alert-${type} alert-dismissible" role="alert" id="alertMessage">`, // added id alertMessage to easily remove alarm
     `   <div>${message}</div>`,
     '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
     '</div>'
   ].join('')
   alertPlaceholder.append(wrapper)
 }
-
-
-/* const alertTrigger = document.getElementById('liveAlertBtn')
-if (alertTrigger) {
-  alertTrigger.addEventListener('click', () => {
-    appendAlert('Nice, you triggered this alert message!', 'success')
-  })
-} */
 
 
 function todayStatus(a){
@@ -71,7 +65,7 @@ function travelTo (b) {  //travelTo location function invoqued in HTML
     }
 
  
-    todaysNews = drugNews();
+    todaysNews = drugNews(); // Generate Today's News
     console.log ("todaysNews: " + todaysNews[0]);
 
     if (todaysNews[0] === 0){
@@ -86,7 +80,7 @@ function travelTo (b) {  //travelTo location function invoqued in HTML
         }
     
 
-    dayNumber ++;
+    dayNumber ++;   //Increase day nuumber
     document.getElementById("locationid").innerHTML = b;
     document.getElementById("dayid").innerHTML = "Day " + dayNumber + "/30";
     
@@ -109,7 +103,7 @@ function drugNews(){
                         "Acid prices are up!"
                     ]
     let randomNumber = Math.floor(Math.random() * 12); // Select a drug's news
-    let newsProbability = Math.floor(Math.random() * 3); // 40% chance neews ocurring
+    let newsProbability = Math.floor(Math.random() * 3); // 30% chance neews ocurring
 
     console.log("news prob: " + newsProbability)
 
@@ -125,10 +119,8 @@ function drugNews(){
 
 
 function drugCard(a){
-    document.getElementById("drugNewsCard").innerHTML = a;
-    document.getElementById("drugTitleCard").innerHTML = a;
-    document.getElementById("drugPriceCard").innerHTML = a;
-    document.getElementById("drugFooterCard").innerHTML = a;
+    document.getElementById("drugPriceCard").innerHTML = "Price: $100.00";
+    document.getElementById("drugInventoryCard").innerHTML = "Inventory: 0";
 }
 
 function nextDay(){
