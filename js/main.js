@@ -20,6 +20,28 @@ var totalDays = 30;
 var dayNumber = 0;
 
 
+// Drug News Alert window
+const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+const appendAlert = (message, type) => {
+  const wrapper = document.createElement('div')
+  wrapper.innerHTML = [
+    `<div class="alert alert-${type} alert-dismissible" role="alert" id="alertMessage">`,
+    `   <div>${message}</div>`,
+    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+    '</div>'
+  ].join('')
+  alertPlaceholder.append(wrapper)
+}
+
+
+/* const alertTrigger = document.getElementById('liveAlertBtn')
+if (alertTrigger) {
+  alertTrigger.addEventListener('click', () => {
+    appendAlert('Nice, you triggered this alert message!', 'success')
+  })
+} */
+
+
 function todayStatus(a){
     
     document.getElementById("dayid").innerHTML = "Day " + a + "/30";
@@ -51,9 +73,9 @@ function travelTo (b) {  //travelTo location function invoqued in HTML
  
     todaysNews = drugNews();
     console.log ("todaysNews: " + todaysNews[0]);
-    
+
     if (todaysNews[0] === 0){
-            const borraAlertPlaceHolder = document.getElementById('liveAlertPlaceholder');
+            const borraAlertPlaceHolder = document.getElementById('alertMessage');
             if (borraAlertPlaceHolder != null ){ 
             console.log(borraAlertPlaceHolder);
             borraAlertPlaceHolder.remove();
@@ -71,7 +93,6 @@ function travelTo (b) {  //travelTo location function invoqued in HTML
 
     
 }
-
 
 function drugNews(){
     const newsReel = ["Speed Prices are up!",
@@ -91,34 +112,15 @@ function drugNews(){
     let newsProbability = Math.floor(Math.random() * 3); // 40% chance neews ocurring
 
     console.log("news prob: " + newsProbability)
+
     if (newsProbability === 1) {
+        console.log("News Reel: " + newsReel[randomNumber]);
         return [ randomNumber + 1 ,newsReel[randomNumber]]; //Return drug number and news
     } else {
         console.log("No news");
         return [0,0];  // Return 0,0 No news
     }
     
-}
-
-// Drug News Alert window
-const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-const appendAlert = (message, type) => {
-  const wrapper = document.createElement('div')
-  wrapper.innerHTML = [
-    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-    `   <div>${message}</div>`,
-    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-    '</div>'
-  ].join('')
-
-  alertPlaceholder.append(wrapper)
-}
-
-const alertTrigger = document.getElementById('liveAlertBtn')
-if (alertTrigger) {
-  alertTrigger.addEventListener('click', () => {
-    appendAlert('Nice, you triggered this alert message!', 'success')
-  })
 }
 
 
