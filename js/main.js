@@ -118,9 +118,39 @@ function drugNews(){
 }
 
 
-function drugCard(a){
-    document.getElementById("drugPriceCard").innerHTML = "Price: $100.00";
-    document.getElementById("drugInventoryCard").innerHTML = "Inventory: 0";
+function drugCard(cardNumber, drugPrice, drugInventory, trenchcoat, cash, drugAvail){ //Card Number, Drug Price, Inventory, available?
+    
+    //if drug available and affordable paint card green and enable, if not paint it red.
+    //Print drug Price
+    //if available Select drug qty to sell/purchase
+    //Do the purchase/sell math 
+    console.log("================drugCard Function ==============="); //Debug
+    console.log("cardNumber:" + cardNumber);
+    console.log("drugPrice: " + drugPrice);
+    console.log("drugInventory: " + drugInventory);
+    console.log("trechcoat: " + trenchcoat);
+    console.log("cash: " + cash);
+    console.log("drugAvail: " + drugAvail);
+
+    if (drugAvail===true){
+        let cardColor = 'success';
+        let cardCont = document.getElementById('cardCont' + parseInt(cardNumber));
+        cardCont.classList.add(`border-${cardColor}-subtle`); //Card Border
+        //text-success-emphasis bg-success-subtle border-success-subtle
+        let cardTitle = document.getElementById('cardTitle' + parseInt(cardNumber)); //Card title (drug)
+        cardTitle.classList.add(`text-${cardColor}-emphasis`);
+        cardTitle.classList.add(`bg-${cardColor}-subtle`);
+        cardTitle.classList.add(`border-${cardColor}-subtle`);
+        document.getElementById('cardTitle' + parseInt(cardNumber)).innerHTML=drugs[cardNumber]; 
+        document.getElementById('cardPrice' + parseInt(cardNumber)).innerHTML="$ " + drugPrice; //Card Price
+        document.getElementById('cardInventory' + parseInt(cardNumber)).innerHTML=`${drugs[cardNumber]} Inventory: ` + drugInventory; //Card Inventory
+        
+    } else {
+        let cardColor = "danger";
+        let cardCont = document.getElementById('cardCont'+ parseInt(cardNumber));
+        cardCont.classList.add(`border-${cardColor}-subtle'`);
+    }
+
 }
 
 function nextDay(){
@@ -134,7 +164,7 @@ function main() {
     
     todayStatus(dayNumber);
     travelTo("Manhattan");
-    drugCard("Weed");
+    drugCard(1,100,100,100,10,true);
     
 }
 

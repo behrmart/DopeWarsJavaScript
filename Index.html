@@ -84,12 +84,28 @@
             <div class="row p-md-2">
                 <!-- WEED Card -->
                 <div class="col-md-4">
-                    <div class="card text-center border-success-subtle">
-                        <div class="card-header text-success-emphasis bg-success-subtle border-success-subtle" id="drugTitleCard">
-                        Weed
+                    <div class="card text-center" id="cardCont1">
+                        <div class="card-header" id="cardTitle1"></div>
+                        <div class="card-body">
+                        <h5 class="card-title" id="cardPrice1">Weed</h5>
+                        <p class="card-text" id="cardQuant1"></p>
+                        <label for="drugRange1" class="form-label">Select Quantity</label>
+                        <input type="range" class="form-range" min="0" max="10" id="drugRange1">
+                        <a href="#" class="btn btn-outline-success" id="buttonBuy">Buy</a>
+                        <a href="#" class="btn btn-outline-danger" id="buttonSell">Sell</a>
+                        </div>
+                        <div class="card-footer text-info-emphasis bg-info-subtle border-info-subtle" id="cardInventory1">
+                        Drug inventory
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center border-danger-subtle">
+                        <div class="card-header text-danger-emphasis bg-danger-subtle border-danger-subtle" id="drugTitleCard">
+                        Heroin
                         </div>
                         <div class="card-body">
-                        <h5 class="card-title" id="drugPriceCard">Weed</h5>
+                        <h5 class="card-title" id="drugPriceCard">Heroine</h5>
                         <p class="card-text" id="drugToBuyCard"></p>
                         <label for="drugRange1" class="form-label">Select Quantity</label>
                         <input type="range" class="form-range" min="0" max="10" id="drugRange1">
@@ -100,9 +116,6 @@
                         Drug inventory
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    
                 </div>
                 <div class="col-md-4">
                     
