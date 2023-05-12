@@ -7,7 +7,7 @@
     <meta name="author" content="Bernardo Felipe Martínez Meave @behrmart">
   	<meta name="keywords" content="DopeWars Clone in JavaScript">
    
-    <title>DopeWars Clon en JavaScript</title>
+    <title>DopeWars in JavaScript using DOM</title>
 
      <!-- Bootstrap 5.3 Init -->
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
@@ -17,8 +17,8 @@
     <!-- Navbar a heading -->
     <nav class="navbar bg-success">
         <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">DopeWars Clone usando JavaScript/Bootstrap 5.3</span>
-            <span class="navbar-text">Por Bernardo F. Martínez Meave</span>
+            <span class="navbar-brand mb-0 h1">DopeWars Clone using JavaScript DOM/Bootstrap 5.3</span>
+            <span class="navbar-text">by Bernardo F. Martínez Meave</span>
         </div>
     </nav>
 
@@ -82,12 +82,12 @@
                 </div>
             </div>
             <div class="row p-md-2">
-                <!-- WEED Card -->
+                <!-- Card 1 -->
                 <div class="col-md-4">
                     <div class="card text-center" id="cardCont1">
                         <div class="card-header" id="cardTitle1"></div>
                         <div class="card-body">
-                        <h5 class="card-title" id="cardPrice1">Weed</h5>
+                        <h5 class="card-title" id="cardPrice1"></h5>
                         <p class="card-text" id="cardQuant1"></p>
                         <label for="drugRange1" class="form-label">Select Quantity</label>
                         <input type="range" class="form-range" min="0" max="10" id="drugRange1">
@@ -99,20 +99,19 @@
                         </div>
                     </div>
                 </div>
+                <!-- Card 2 -->
                 <div class="col-md-4">
-                    <div class="card text-center border-danger-subtle">
-                        <div class="card-header text-danger-emphasis bg-danger-subtle border-danger-subtle" id="drugTitleCard">
-                        Heroin
-                        </div>
+                    <div class="card text-center" id="cardCont2">
+                        <div class="card-header" id="cardTitle2"></div>
                         <div class="card-body">
-                        <h5 class="card-title" id="drugPriceCard">Heroine</h5>
-                        <p class="card-text" id="drugToBuyCard"></p>
-                        <label for="drugRange1" class="form-label">Select Quantity</label>
-                        <input type="range" class="form-range" min="0" max="10" id="drugRange1">
+                        <h5 class="card-title" id="cardPrice2"></h5>
+                        <p class="card-text" id="cardQuant2"></p>
+                        <label for="drugRange2" class="form-label">Select Quantity</label>
+                        <input type="range" class="form-range" min="0" max="10" id="drugRange2">
                         <a href="#" class="btn btn-outline-success" id="buttonBuy">Buy</a>
                         <a href="#" class="btn btn-outline-danger" id="buttonSell">Sell</a>
                         </div>
-                        <div class="card-footer text-info-emphasis bg-info-subtle border-info-subtle" id="drugInventoryCard">
+                        <div class="card-footer text-info-emphasis bg-info-subtle border-info-subtle" id="cardInventory2">
                         Drug inventory
                         </div>
                     </div>

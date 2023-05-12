@@ -133,10 +133,19 @@ function drugCard(cardNumber, drugPrice, drugInventory, trenchcoat, cash, drugAv
     console.log("drugAvail: " + drugAvail);
 
     if (drugAvail===true){
-        let cardColor = 'success';
+        let cardColor = 'success'; // Green
         let cardCont = document.getElementById('cardCont' + parseInt(cardNumber));
         cardCont.classList.add(`border-${cardColor}-subtle`); //Card Border
-        //text-success-emphasis bg-success-subtle border-success-subtle
+        let cardTitle = document.getElementById('cardTitle' + parseInt(cardNumber)); //Card title (drug)
+        cardTitle.classList.add(`text-${cardColor}-emphasis`,`bg-${cardColor}-subtle`,`border-${cardColor}-subtle`);
+        document.getElementById('cardTitle' + parseInt(cardNumber)).innerHTML=drugs[cardNumber]; 
+        document.getElementById('cardPrice' + parseInt(cardNumber)).innerHTML="$ " + drugPrice; //Card Price
+        document.getElementById('cardInventory' + parseInt(cardNumber)).innerHTML=`${drugs[cardNumber]} Inventory: ` + drugInventory; //Card Inventory
+        
+    } else {
+        let cardColor = 'danger'; //Red
+        let cardCont = document.getElementById('cardCont' + parseInt(cardNumber));
+        cardCont.classList.add(`border-${cardColor}-subtle`); //Card Border
         let cardTitle = document.getElementById('cardTitle' + parseInt(cardNumber)); //Card title (drug)
         cardTitle.classList.add(`text-${cardColor}-emphasis`);
         cardTitle.classList.add(`bg-${cardColor}-subtle`);
@@ -145,10 +154,6 @@ function drugCard(cardNumber, drugPrice, drugInventory, trenchcoat, cash, drugAv
         document.getElementById('cardPrice' + parseInt(cardNumber)).innerHTML="$ " + drugPrice; //Card Price
         document.getElementById('cardInventory' + parseInt(cardNumber)).innerHTML=`${drugs[cardNumber]} Inventory: ` + drugInventory; //Card Inventory
         
-    } else {
-        let cardColor = "danger";
-        let cardCont = document.getElementById('cardCont'+ parseInt(cardNumber));
-        cardCont.classList.add(`border-${cardColor}-subtle'`);
     }
 
 }
@@ -164,20 +169,10 @@ function main() {
     
     todayStatus(dayNumber);
     travelTo("Manhattan");
-    drugCard(1,100,100,100,10,true);
+    drugCard(1,45,100,100,40,true);
+    drugCard(2,345,405,100,20,false);
     
 }
 
 main(); 
 
-
-
-
-// Echar los Perros en JavaScript
-//const noviaName = "Novia Potencial";
-
-// Declara tu amor
-//const mensajeAmor = `Te amo , ${noviaName}! Eres la mejor Dev en GitHub adoro tus cuadritos verdes `;
-
-// Hazlo oficial
-//console.log(mensajeAmor);
