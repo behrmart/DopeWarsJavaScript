@@ -5,14 +5,24 @@
 // Stardate: 20230418
 
 const locations = ["Manhattan", "The Bronx", "Brooklyn", "Conney Island", "Queens"];
-const drugs = ["Cocaine", "Heroin", "Acid", 
-                "Weed", "Speed", "Ludes", 
-                "Hash", "Meth", "Ecstasy", 
-                "PCP", "Opium", "Peyote"];
+let drugs = [
+                ["Cocaine",1000,2,0], // Drugname, Price, Volatibility, Inventory   
+                ["Heroin", 800, 1, 0],    
+                ["Acid", 100, 1, 0], 
+                ["Weed", 20, 1, 0],
+                ["Speed", 17, 1, 0], 
+                ["Ludes", 25, 1, 0],
+                ["Hash", 54,1,0],
+                ["Meth", 32,1,0],
+                ["Ecstasy",46,1,0], 
+                ["PCP", 230,1,0], 
+                ["Opium", 123, 1,0],
+                ["Peyote", 267,1,0]
+            ];
+            
 
-const weed = ["Weed",100,0,] //Drug name, Price, Quantity in Inventory
-
-
+drugs.forEach((element,index) => {console.log(element,index)}); // display drugs nested array - debug only
+    
 var cash = 2000;
 var trenchcoat = 100;
 var gun = false;
