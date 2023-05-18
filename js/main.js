@@ -98,7 +98,7 @@ function travelTo (b) {  //travelTo location function invoqued in HTML
     
 }
 
-function drugNews(){
+function drugNews(){ //This prints today's news on an alert window (just in case there is news)
     const newsReel = ["Speed Prices are up!",
                         "Cocaine Prices are up! ", 
                         "Cactus Jake is in Town Peyote prices are down!", 
@@ -142,16 +142,46 @@ function drugCard(cardNumber, drugPrice, drugInventory, trenchcoat, cash, drugAv
     console.log("cash: " + cash);
     console.log("drugAvail: " + drugAvail);
 
+    if (cardNumber <= 3) {  // Select Row on Cards container based on cardNumber
+        cardRowNo = 1;
+    } else if (cardNumber <= 7) {
+        cardRowNo = 2;
+    } else {
+        cardRowNo = 3;
+    }
+
     if (drugAvail===true){
+
+        let cardRowNo = 1;
         let cardColor = 'success'; // Green
-        let cardCont = document.getElementById('cardCont' + parseInt(cardNumber));
-        cardCont.classList.add(`border-${cardColor}-subtle`); //Card Border
-        let cardTitle = document.getElementById('cardTitle' + parseInt(cardNumber)); //Card title (drug)
-        cardTitle.classList.add(`text-${cardColor}-emphasis`,`bg-${cardColor}-subtle`,`border-${cardColor}-subtle`);
-        document.getElementById('cardTitle' + parseInt(cardNumber)).innerHTML=drugs[cardNumber]; 
-        document.getElementById('cardPrice' + parseInt(cardNumber)).innerHTML="$ " + drugPrice; //Card Price
-        document.getElementById('cardInventory' + parseInt(cardNumber)).innerHTML=`${drugs[cardNumber]} Inventory: ` + drugInventory; //Card Inventory
-        
+        let cardCont = 'cardCont' + parseInt(cardNumber);
+        let cardTitle = 'cardTitle' + parseInt(cardNumber); //Card title (drug)
+
+        var cardElement = document.createElement("div");
+        cardElement.id = "card1";
+        cardElement.className = "card text-center";
+
+        cardElement.innerHTML = [
+            '<div class="col-md-4">',
+            `<div class="card text-center border-${cardColor}-subtle" id=${cardCont}">`,
+            `<div class="card-header text-${cardColor}-emphasis bg-${cardColor}-subtle border-${cardColor}-subtle" id="cardTitle1">${drugs[cardNumber-1][0]}</div>`,
+            '<div class="card-body">',
+            `<h5 class="card-title" id="cardPrice1">${'$' +drugPrice}</h5>`,
+            `<p class="card-text" id="cardQuant1"></p>`,
+            `<label for="drugRange1" class="form-label">Select Quantity</label>`,
+            `<input type="range" class="form-range" min="0" max="10" id="drugRange1">`,
+            `<a href="#" class="btn btn-outline-success" id="buttonBuy">Buy</a>`,
+            `<a href="#" class="btn btn-outline-danger" id="buttonSell">Sell</a>`,
+            `</div>`,
+            `<div class="card-footer text-info-emphasis bg-info-subtle border-info-subtle" id="cardInventory1">${drugs[cardNumber][0]} Inventory: ${drugInventory}</div>`,
+            `</div>`,
+            `</div>`
+        ].join('');
+
+        var parentElement = document.getElementById('cardrow' + parseInt(cardRowNo));
+        parentElement.appendChild(cardElement);
+
+
     } else {
         let cardColor = 'danger'; //Red
         let cardCont = document.getElementById('cardCont' + parseInt(cardNumber));
@@ -175,14 +205,17 @@ function nextDay(){
 }
 
 
-function main() {
+function main() { //this runs only the first time - Obviously.
     
     todayStatus(dayNumber);
     travelTo("Manhattan");
     drugCard(1,45,100,100,40,true);
-    drugCard(2,345,405,100,20,false);
-    
-}
+    drugCard(8,45,100,100,40,true);
+    drugCard(10,45,100,100,40,true);
+    //drugCard(2,345,405,100,20,false);
+    }
+        
+
 
 main(); 
 
