@@ -21,7 +21,7 @@ let drugs = [
             ];
             
 
-drugs.forEach((element,index) => {console.log(element,index)}); // display drugs nested array - debug only
+//drugs.forEach((element,index) => {console.log(element,index)}); // display drugs nested array - debug only
     
 var cash = 2000;
 var trenchcoat = 100;
@@ -134,13 +134,13 @@ function drugCard(cardNumber, drugPrice, drugInventory, trenchcoat, cash, drugAv
     //Print drug Price
     //if available Select drug qty to sell/purchase
     //Do the purchase/sell math 
-    console.log("================drugCard Function ==============="); //Debug
+    /* console.log("================drugCard Function ==============="); //Debug
     console.log("cardNumber:" + cardNumber);
     console.log("drugPrice: " + drugPrice);
     console.log("drugInventory: " + drugInventory);
     console.log("trechcoat: " + trenchcoat);
     console.log("cash: " + cash);
-    console.log("drugAvail: " + drugAvail);
+    console.log("drugAvail: " + drugAvail); */
 
     if (cardNumber <= 3) {  // Select Row on Cards container based on cardNumber
         cardRowNo = 1;
@@ -158,8 +158,8 @@ function drugCard(cardNumber, drugPrice, drugInventory, trenchcoat, cash, drugAv
         let cardTitle = 'cardTitle' + parseInt(cardNumber); //Card title (drug)
 
         var cardElement = document.createElement("div");
-        cardElement.id = "card1";
-        cardElement.className = "card text-center";
+        cardElement.id = "card" + parseInt(cardNumber);
+        cardElement.className = "card text-center p-md-2";
 
         cardElement.innerHTML = [
             '<div class="col-md-4">',
@@ -181,6 +181,7 @@ function drugCard(cardNumber, drugPrice, drugInventory, trenchcoat, cash, drugAv
         var parentElement = document.getElementById('cardrow' + parseInt(cardRowNo));
         parentElement.appendChild(cardElement);
 
+        console.log(cardElement.innerHTML);
 
     } else {
         let cardColor = 'danger'; //Red
@@ -210,6 +211,7 @@ function main() { //this runs only the first time - Obviously.
     todayStatus(dayNumber);
     travelTo("Manhattan");
     drugCard(1,45,100,100,40,true);
+    drugCard(2,234,100,100,40,true);
     drugCard(8,45,100,100,40,true);
     drugCard(10,45,100,100,40,true);
     //drugCard(2,345,405,100,20,false);
