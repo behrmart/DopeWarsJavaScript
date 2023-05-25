@@ -86,7 +86,7 @@ function travelTo (b) {  //travelTo location function invoqued in HTML
             }
             
         } else {
-            appendAlert(todaysNews[1], 'success');
+            appendAlert(todaysNews[1], 'warning'); //News Alert Color
         }
     
 
@@ -151,7 +151,7 @@ function drugCard(cardNumber, drugPrice, drugInventory, trenchcoat, cash, drugAv
 
         var cardElement = document.createElement("div");  //Create Card div
         cardElement.id = "card" + parseInt(cardNumber);
-        cardElement.className = "card col-md-4 text-center p-md-2 border-dark"; //Should be a col-md-4 to fit in row
+        cardElement.className = "card col-md-4 text-center p-2 border-dark"; //Should be a col-md-4 to fit in row
 
         cardElement.innerHTML = [
             `<div class="card text-center border-${cardColor}-subtle" id="${cardCont}">`,
@@ -188,7 +188,7 @@ function drugCard(cardNumber, drugPrice, drugInventory, trenchcoat, cash, drugAv
 
         var cardElement = document.createElement("div");  //Create Card div
         cardElement.id = "card" + parseInt(cardNumber);
-        cardElement.className = "card col-md-4 text-center p-md-2 border-dark"; //Should be a col-md-4 to fit in row
+        cardElement.className = "card col-md-4 text-center p-2 border-dark"; //Should be a col-md-4 to fit in row
 
         cardElement.innerHTML = [
             `<div class="card text-center border-${cardColor}-subtle" id="${cardCont}">`,
