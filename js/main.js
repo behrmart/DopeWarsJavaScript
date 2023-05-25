@@ -139,7 +139,7 @@ function drugCard(cardNumber, drugPrice, drugInventory, trenchcoat, cash, drugAv
         cardRowNo = 3;
     }
 
-    if (drugAvail===true){
+    if (drugAvail===true){ // Drug Available today GREEN card
 
         let cardColor = 'success'; // Green
         let cardCont = 'cardCont' + parseInt(cardNumber);
@@ -151,7 +151,7 @@ function drugCard(cardNumber, drugPrice, drugInventory, trenchcoat, cash, drugAv
 
         var cardElement = document.createElement("div");  //Create Card div
         cardElement.id = "card" + parseInt(cardNumber);
-        cardElement.className = "card col-md-4 text-center p-md-2"; //Should be a col-md-4 to fit in row
+        cardElement.className = "card col-md-4 text-center p-md-2 border-dark"; //Should be a col-md-4 to fit in row
 
         cardElement.innerHTML = [
             `<div class="card text-center border-${cardColor}-subtle" id="${cardCont}">`,
@@ -188,7 +188,7 @@ function drugCard(cardNumber, drugPrice, drugInventory, trenchcoat, cash, drugAv
 
         var cardElement = document.createElement("div");  //Create Card div
         cardElement.id = "card" + parseInt(cardNumber);
-        cardElement.className = "card col-md-4 text-center p-md-2"; //Should be a col-md-4 to fit in row
+        cardElement.className = "card col-md-4 text-center p-md-2 border-dark"; //Should be a col-md-4 to fit in row
 
         cardElement.innerHTML = [
             `<div class="card text-center border-${cardColor}-subtle" id="${cardCont}">`,
