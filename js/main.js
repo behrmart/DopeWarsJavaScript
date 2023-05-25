@@ -152,18 +152,21 @@ function drugCard(cardNumber, drugPrice, drugInventory, trenchcoat, cash, drugAv
 
     if (drugAvail===true){
 
-        let cardRowNo = 1;
+        //let cardRowNo = 1;
         let cardColor = 'success'; // Green
         let cardCont = 'cardCont' + parseInt(cardNumber);
         let cardTitle = 'cardTitle' + parseInt(cardNumber); //Card title (drug)
 
-        var cardElement = document.createElement("div");
+        console.log('CardRowNo: ', cardRowNo);
+        console.log('CardCont: ', cardCont);
+        console.log('CardColor: ', cardColor);
+
+        var cardElement = document.createElement("div");  //Create Card div
         cardElement.id = "card" + parseInt(cardNumber);
-        cardElement.className = "card text-center p-md-2";
+        cardElement.className = "card col-md-4 text-center p-md-2"; //Should be a col-md-4 to fit in row
 
         cardElement.innerHTML = [
-            '<div class="col-md-4">',
-            `<div class="card text-center border-${cardColor}-subtle" id=${cardCont}">`,
+            `<div class="card text-center border-${cardColor}-subtle" id="${cardCont}">`,
             `<div class="card-header text-${cardColor}-emphasis bg-${cardColor}-subtle border-${cardColor}-subtle" id="cardTitle1">${drugs[cardNumber-1][0]}</div>`,
             '<div class="card-body">',
             `<h5 class="card-title" id="cardPrice1">${'$' +drugPrice}</h5>`,
@@ -178,10 +181,13 @@ function drugCard(cardNumber, drugPrice, drugInventory, trenchcoat, cash, drugAv
             `</div>`
         ].join('');
 
-        var parentElement = document.getElementById('cardrow' + parseInt(cardRowNo));
+        let getEleId = 'cardrow' + cardRowNo; //get row element
+        console.log('getEleId ' + getEleId); // Debug
+
+        var parentElement = document.getElementById(getEleId); //Append Card to HTML
         parentElement.appendChild(cardElement);
 
-        console.log(cardElement.innerHTML);
+         console.log(cardElement.innerHTML); //Debug
 
     } else {
         let cardColor = 'danger'; //Red
@@ -212,8 +218,8 @@ function main() { //this runs only the first time - Obviously.
     travelTo("Manhattan");
     drugCard(1,45,100,100,40,true);
     drugCard(2,234,100,100,40,true);
-    drugCard(8,45,100,100,40,true);
-    drugCard(10,45,100,100,40,true);
+    drugCard(4,45,100,100,40,true);
+    drugCard(5,45,100,100,40,true);
     //drugCard(2,345,405,100,20,false);
     }
         
