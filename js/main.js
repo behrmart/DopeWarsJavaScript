@@ -128,23 +128,12 @@ function drugNews(){ //This prints today's news on an alert window (just in case
 }
 
 
-function drugCard(cardNumber, drugPrice, drugInventory, trenchcoat, cash, drugAvail){ //Card Number, Drug Price, Inventory, available?
+function drugCard(cardNumber, drugPrice, drugInventory, trenchcoat, cash, drugAvail){ //Card Number, Drug Price, Inventory, trenchcoat, cash, available?
     
-    //if drug available and affordable paint card green and enable, if not paint it red.
-    //Print drug Price
-    //if available Select drug qty to sell/purchase
-    //Do the purchase/sell math 
-    /* console.log("================drugCard Function ==============="); //Debug
-    console.log("cardNumber:" + cardNumber);
-    console.log("drugPrice: " + drugPrice);
-    console.log("drugInventory: " + drugInventory);
-    console.log("trechcoat: " + trenchcoat);
-    console.log("cash: " + cash);
-    console.log("drugAvail: " + drugAvail); */
 
-    if (cardNumber <= 3) {  // Select Row on Cards container based on cardNumber
+    if (cardNumber <= 3) {  // Select Row on Cards container based on cardNumber 3 cards per row
         cardRowNo = 1;
-    } else if (cardNumber <= 7) {
+    } else if (cardNumber <= 6) {
         cardRowNo = 2;
     } else {
         cardRowNo = 3;
@@ -152,7 +141,6 @@ function drugCard(cardNumber, drugPrice, drugInventory, trenchcoat, cash, drugAv
 
     if (drugAvail===true){
 
-        //let cardRowNo = 1;
         let cardColor = 'success'; // Green
         let cardCont = 'cardCont' + parseInt(cardNumber);
         let cardTitle = 'cardTitle' + parseInt(cardNumber); //Card title (drug)
@@ -182,24 +170,48 @@ function drugCard(cardNumber, drugPrice, drugInventory, trenchcoat, cash, drugAv
         ].join('');
 
         let getEleId = 'cardrow' + cardRowNo; //get row element
-        console.log('getEleId ' + getEleId); // Debug
-
+        // console.log('getEleId ' + getEleId); // Debug
         var parentElement = document.getElementById(getEleId); //Append Card to HTML
         parentElement.appendChild(cardElement);
 
-         console.log(cardElement.innerHTML); //Debug
+         // console.log(cardElement.innerHTML); //Debug
 
-    } else {
-        let cardColor = 'danger'; //Red
-        let cardCont = document.getElementById('cardCont' + parseInt(cardNumber));
-        cardCont.classList.add(`border-${cardColor}-subtle`); //Card Border
-        let cardTitle = document.getElementById('cardTitle' + parseInt(cardNumber)); //Card title (drug)
-        cardTitle.classList.add(`text-${cardColor}-emphasis`);
-        cardTitle.classList.add(`bg-${cardColor}-subtle`);
-        cardTitle.classList.add(`border-${cardColor}-subtle`);
-        document.getElementById('cardTitle' + parseInt(cardNumber)).innerHTML=drugs[cardNumber]; 
-        document.getElementById('cardPrice' + parseInt(cardNumber)).innerHTML="$ " + drugPrice; //Card Price
-        document.getElementById('cardInventory' + parseInt(cardNumber)).innerHTML=`${drugs[cardNumber]} Inventory: ` + drugInventory; //Card Inventory
+    } else {  // Drug NOT Available today RED card
+
+        let cardColor = 'danger'; // Red
+        let cardCont = 'cardCont' + parseInt(cardNumber);
+        let cardTitle = 'cardTitle' + parseInt(cardNumber); //Card title (drug)
+
+        console.log('CardRowNo: ', cardRowNo);
+        console.log('CardCont: ', cardCont);
+        console.log('CardColor: ', cardColor);
+
+        var cardElement = document.createElement("div");  //Create Card div
+        cardElement.id = "card" + parseInt(cardNumber);
+        cardElement.className = "card col-md-4 text-center p-md-2"; //Should be a col-md-4 to fit in row
+
+        cardElement.innerHTML = [
+            `<div class="card text-center border-${cardColor}-subtle" id="${cardCont}">`,
+            `<div class="card-header text-${cardColor}-emphasis bg-${cardColor}-subtle border-${cardColor}-subtle" id="cardTitle1">${drugs[cardNumber-1][0]}</div>`,
+            '<div class="card-body">',
+            `<h5 class="card-title" id="cardPrice1">${'$' +drugPrice}</h5>`,
+            `<p class="card-text" id="cardQuant1"></p>`,
+            `<label for="drugRange1" class="form-label">Select Quantity</label>`,
+            `<input type="range" class="form-range" min="0" max="10" id="drugRange1">`,
+            `<a href="#" class="btn btn-outline-success" id="buttonBuy">Buy</a>`,
+            `<a href="#" class="btn btn-outline-danger" id="buttonSell">Sell</a>`,
+            `</div>`,
+            `<div class="card-footer text-info-emphasis bg-info-subtle border-info-subtle" id="cardInventory1">${drugs[cardNumber][0]} Inventory: ${drugInventory}</div>`,
+            `</div>`,
+            `</div>`
+        ].join('');
+
+        let getEleId = 'cardrow' + cardRowNo; //get row element
+        // console.log('getEleId ' + getEleId); // Debug
+        var parentElement = document.getElementById(getEleId); //Append Card to HTML
+        parentElement.appendChild(cardElement);
+
+         // console.log(cardElement.innerHTML); //Debug
         
     }
 
@@ -216,10 +228,15 @@ function main() { //this runs only the first time - Obviously.
     
     todayStatus(dayNumber);
     travelTo("Manhattan");
-    drugCard(1,45,100,100,40,true);
-    drugCard(2,234,100,100,40,true);
-    drugCard(4,45,100,100,40,true);
-    drugCard(5,45,100,100,40,true);
+    drugCard(1,45,0,100,40,true);  //Card Number, Drug Price, Inventory, trenchcoat, cash, available?
+    drugCard(2,55,0,100,40,false);
+    drugCard(3,654,0,100,40,true);
+    drugCard(4,75,0,100,40,false);
+    drugCard(5,85,0,100,40,true);
+    drugCard(6,95,0,100,40,false);
+    drugCard(7,105,0,100,40,true);
+    drugCard(8,115,0,100,40,false);
+    drugCard(9,125,0,100,40,true);
     //drugCard(2,345,405,100,20,false);
     }
         
