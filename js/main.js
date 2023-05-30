@@ -6,18 +6,18 @@
 
 const locations = ["Manhattan", "The Bronx", "Brooklyn", "Conney Island", "Queens"];
 let drugs = [
-                ["Cocaine",1000,2,0], // Drugname, Price, Volatibility, Inventory   
-                ["Heroin", 800, 1, 0],    
-                ["Acid", 100, 1, 0], 
-                ["Weed", 20, 1, 0],
-                ["Speed", 17, 1, 0], 
-                ["Ludes", 25, 1, 0],
-                ["Hash", 54,1,0],
-                ["Meth", 32,1,0],
-                ["Ecstasy",46,1,0], 
-                ["PCP", 230,1,0], 
-                ["Opium", 123, 1,0],
-                ["Peyote", 267,1,0]
+                ["Cocaine", 1000, 2, 0], // Drugname, Mean Price, Volatibility (up or down), Inventory   
+                ["Heroin", 800, 2, 0],    
+                ["Acid", 100, .5, 0], 
+                ["Weed", 20, .2, 0],
+                ["Speed", 17, .4, 0], 
+                ["Ludes", 25, .6, 0],
+                ["Hash", 54, .4, 0],
+                ["Meth", 32, 3, 0],
+                ["Ecstasy", 46, 1,0], 
+                ["PCP", 230, 1.2, 0], 
+                ["Opium", 123, 1.7 ,0],
+                ["Peyote", 267, .9, 0]
             ];
             
 
@@ -34,7 +34,7 @@ var dayNumber = 0;
 
 // Drug News Alert window
 const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-const appendAlert = (message, type) => {
+const appendAlert = (message, type) => {  //Parameters are Alert Message and type Alert Color success warning etc...
   const wrapper = document.createElement('div')
   wrapper.innerHTML = [
     `<div class="alert alert-${type} alert-dismissible" role="alert" id="alertMessage">`, // added id alertMessage to easily remove alarm
@@ -224,10 +224,16 @@ function nextDay(){
 }
 
 
+function generateDrugPrices (){
+    drugs.forEach(function(element){console.log(element)})
+}
+
+
 function main() { //this runs only the first time - Obviously.
     
     todayStatus(dayNumber);
     travelTo("Manhattan");
+    generateDrugPrices();
     drugCard(1,45,0,100,40,true);  //Card Number, Drug Price, Inventory, trenchcoat, cash, available?
     drugCard(2,55,0,100,40,false);
     drugCard(3,654,0,100,40,true);
